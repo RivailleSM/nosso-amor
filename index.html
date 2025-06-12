@@ -72,15 +72,41 @@
         opacity: 0;
       }
     }
+
+    /* Botão da música */
+    #music-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      padding: 10px 15px;
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
 
+  <!-- Música e botão -->
+  <audio id="bg-music" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <button id="music-toggle">🔊 Tocar música</button>
+
+  <!-- Cabeçalho -->
   <header>
     <h1>Desde que nos apaixonamos 💑</h1>
     <div class="counter" id="love-counter"></div>
   </header>
 
+  <!-- Galeria de fotos -->
   <section class="gallery">
     <img src="foto1.jpg" alt="Foto 1" style="width:300px;">
     <img src="foto2.jpg" alt="Foto 2">
@@ -88,12 +114,13 @@
     <!-- Adicione mais fotos aqui -->
   </section>
 
+  <!-- Rodapé -->
   <footer>
     <p>Te amo para sempre 💖</p>
   </footer>
 
+  <!-- Contador de tempo de amor -->
   <script>
-    // Contador de tempo de namoro
     const startDate = new Date("2024-03-03T00:00:00");
     const counter = document.getElementById("love-counter");
 
@@ -113,13 +140,12 @@
     updateCounter();
   </script>
 
+  <!-- Corações caindo -->
   <script>
-    // Efeito de corações caindo
     function createHeart() {
       const heart = document.createElement("div");
       heart.classList.add("heart");
-      heart.innerText = "💖"; // Troque para "🌸" se quiser flores
-
+      heart.innerText = "💖"; // Você pode trocar por "🌸" se quiser flores
       heart.style.left = Math.random() * 100 + "vw";
       heart.style.fontSize = Math.random() * 20 + 10 + "px";
       document.body.appendChild(heart);
@@ -130,6 +156,24 @@
     }
 
     setInterval(createHeart, 300);
+  </script>
+
+  <!-- Controle de música -->
+  <script>
+    const music = document.getElementById("bg-music");
+    const musicToggle = document.getElementById("music-toggle");
+    let isPlaying = false;
+
+    musicToggle.addEventListener("click", () => {
+      if (isPlaying) {
+        music.pause();
+        musicToggle.innerText = "🔊 Tocar música";
+      } else {
+        music.play();
+        musicToggle.innerText = "🔇 Pausar música";
+      }
+      isPlaying = !isPlaying;
+    });
   </script>
 
 </body>
