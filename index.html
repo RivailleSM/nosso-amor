@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosso Amor 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: #ffe6ec;
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      padding: 30px;
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    h1 {
+      font-size: 2.5em;
+    }
+
+    .counter {
+      font-size: 1.8em;
+      margin: 20px 0;
+    }
+
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 20px;
+      justify-content: center;
+    }
+
+    .gallery img {
+      height: 300px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #ff4d6d;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Desde que nos apaixonamos 💑</h1>
+    <div class="counter" id="love-counter"></div>
+  </header>
+
+  <section class="gallery">
+    <img src="foto1.jpg" alt="Teste de imagem" style="width:300px;">
+    <img src="foto2.jpg" alt="Foto 2">
+    <img src="foto3.jpg" alt="Foto 3">
+    <!-- Adicione mais fotos aqui -->
+  </section>
+
+  <footer>
+    <p>Te amo para sempre 💖</p>
+  </footer>
+
+  <script>
+    const startDate = new Date("2024-03-03T00:00:00"); // Coloque a data do início do namoro aqui
+    const counter = document.getElementById("love-counter");
+
+    function updateCounter() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      counter.innerHTML = `${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos de amor!`;
+    }
+
+    setInterval(updateCounter, 1000);
+    updateCounter();
+  </script>
+
+</body>
+</html>
