@@ -5,44 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nosso Amor 💖</title>
   <style>
-    .heart {
-  width: 20px;
-  height: 20px;
-  position: fixed;
-  top: -30px;
-  animation: fall 4s linear infinite;
-  pointer-events: none;
-  z-index: 999;
-}
-
-@keyframes fall {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-<script>
-  function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerText = "💖";
-
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 10 + "px";
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-      heart.remove();
-    }, 4000);
-  }
-
-  setInterval(createHeart, 300);
-</script>
-
     body {
       margin: 0;
       padding: 0;
@@ -50,6 +12,7 @@
       background: #ffe6ec;
       color: #333;
       text-align: center;
+      overflow-x: hidden;
     }
 
     header {
@@ -87,19 +50,41 @@
       background-color: #ff4d6d;
       color: white;
     }
+
+    /* Corações animados */
+    .heart {
+      width: 20px;
+      height: 20px;
+      position: fixed;
+      top: -30px;
+      animation: fall 4s linear infinite;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Desde que eu sou seu e você é minha 💑</h1>
+    <h1>Desde que nos apaixonamos 💑</h1>
     <div class="counter" id="love-counter"></div>
   </header>
 
   <section class="gallery">
-    <img src="foto1.jpeg" alt="Eu te amo">
-    <img src="foto2.jpeg" alt="Para sempre">
-    <img src="foto3.jpeg" alt="Casa comigo?">
+    <img src="foto1.jpg" alt="Foto 1" style="width:300px;">
+    <img src="foto2.jpg" alt="Foto 2">
+    <img src="foto3.jpg" alt="Foto 3">
     <!-- Adicione mais fotos aqui -->
   </section>
 
@@ -108,7 +93,8 @@
   </footer>
 
   <script>
-    const startDate = new Date("2024-03-03T00:00:00"); // Coloque a data do início do namoro aqui
+    // Contador de tempo de namoro
+    const startDate = new Date("2024-03-03T00:00:00");
     const counter = document.getElementById("love-counter");
 
     function updateCounter() {
@@ -125,6 +111,25 @@
 
     setInterval(updateCounter, 1000);
     updateCounter();
+  </script>
+
+  <script>
+    // Efeito de corações caindo
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "💖"; // Troque para "🌸" se quiser flores
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 10 + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 4000);
+    }
+
+    setInterval(createHeart, 300);
   </script>
 
 </body>
